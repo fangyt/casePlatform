@@ -1,0 +1,31 @@
+body{
+    padding: 0px;
+    margin: 0px;
+
+    font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑";
+
+}
+
+
+.leftPage{
+
+    width: 160px;
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 25px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+
+    position: absolute;
+    background-color: #2f4050;
+
+}
+
+.main{
+
+     height: 690px;
+     margin-left: 160px;
+
+}
