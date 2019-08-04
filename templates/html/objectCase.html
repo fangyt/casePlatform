@@ -8,12 +8,14 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="{{ url_for('static',filename = 'css/bootstrap.css') }}" rel="stylesheet">
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-    <script src="{{ url_for('static',filename = 'jquery/jquery.min.js') }}"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script src="{{ url_for('static',filename = 'js/bootstrap.js') }}"></script>
-    <link href="{{ url_for('static',filename='css/object.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/object.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 
     <link rel="stylesheet"
@@ -25,28 +27,44 @@
 
 </head>
 <body>
+<div id="addCaseBtn">
 
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    添加项目
+    <button type="button" class="btn btn-primary btn-lg "  data-toggle="modal" data-target="#myModal" id="addCase">
+    添加测试用例
 </button>
+
+</div>
+
 
 <!-- 基础项目信息弹框 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title " id="myModalLabel" >用例配置信息</h4>
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel" align="center">用例配置信息</h4>
             </div>
             <div class="modal-body">
 
                 <div id="caseHeader">
-                    <select class="selectpicker" data-style="btn-primary" data-width="fit">
-                        <option>GET</option>
-                        <option>POST</option>
-                    </select>
-                    <input type="text">
+
+                    <div class="container mt-3">
+
+                        <div class="input-group mb-3">
+
+                            <div class="input-group-append">
+                                <select class="selectpicker" data-style="btn-primary" data-width="fit">
+                                    <option>GET</option>
+                                    <option>POST</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Something clever..">
+
+                        </div>
+                    </div>
+
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-default" id="heardBtn">请求头</button>
@@ -67,11 +85,16 @@
 
                     <div id="header">
 
+                        <div class="container mt-3" id="tttt">
 
-                        <div id="headerAdd">
-                            <input type="text" class="input-group-sm">
-                            <input type="text" class="input-group-sm">
-                            <button type="button" class="btn-success" id="add">添加</button>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="inputKey" placeholder="KEY">
+                                <input type="text" class="form-control" id='inputValue' placeholder="VALUE">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" id="addArgument">添加</button>
+                                    <button class="btn btn-danger" type="button" id="delArgument">删除</button>
+                                </div>
+                            </div>
                         </div>
 
 
@@ -117,11 +140,19 @@
         $('#assertData').show()
 
     })
-
+    /*
     $('#add').click(function () {
         console.log('headerAdd', $('#headerAdd'))
 
         $('#headerAdd').append($('#headerAdd').html())
+
+    })
+
+     */
+
+    $('#addArgument').click(function () {
+
+        $('#header').append($('#tttt').html())
 
     })
 

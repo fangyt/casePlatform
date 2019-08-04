@@ -1,3 +1,23 @@
+Skip to content
+Why GitHub?
+Enterprise
+Explore
+Marketplace
+Pricing
+Search
+
+Sign in
+Sign up
+1 0 0 fangyt/casePlatform
+Code  Issues 0  Pull requests 0  Projects 0  Security  Insights
+Join GitHub today
+GitHub is home to over 36 million developers working together to host and review code, manage projects, and build software together.
+
+casePlatform/templates/html/home.html
+fangyongteng 1.新提交
+75284ca 11 days ago
+139 lines (103 sloc)  4.72 KB
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -44,7 +64,7 @@
 
                         </div>
 
-                        <div class="objectHostContainer">
+                        <div class="form-group">
 
                             <label for="objectHost">项目HOST：</label>
                             <input type="url" class="form-control" name="objectHostName" placeholder="请输入项目HOST"
@@ -53,7 +73,7 @@
 
                         </div>
 
-                        <div class="objectDingTalkUrlContainer">
+                        <div class="form-group">
 
                             <label for="objectDingTalkUrl">钉钉群URL：</label>
                             <input type="url" class="form-control" name="objectDingTalkUrlName"
@@ -61,13 +81,13 @@
                                    required autofocus id="objectDingTalkUrlName">
                         </div>
 
+                        {#                        <button type="submit" class="btn btn-lg btn-primary btn-block" id="saveBtn">保存项目信息</button>#}
 
                     </form>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="submit" class="btn btn-primary" id="saveBtn">保存项目信息</button>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block" id="saveBtn">保存项目信息</button>
                 </div>
             </div>
         </div>
@@ -86,13 +106,12 @@
             <th>项目名称</th>
             <th>项目HOST</th>
             <th>钉钉群URL</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody id="tbody">
         <tr class="success">
-            <td id="objectTableName">Tanmay</td>
-            <td>Bangalore</td>
-            <td>uuuu</td>
+
         </tr>
 
 
@@ -104,31 +123,29 @@
 <script>
     window.onload = () => {
         var saveBtn = document.getElementById('saveBtn')
-
-
         console.log('objectNameName', objectNameName)
-
-
         saveBtn.onclick = function () {
             var objectNameName = $('#objectNameName').val()
             var objectHostName = $('#objectHostName').val()
             var objectDingTalkUrlName = $('#objectDingTalkUrlName').val()
-
-            {#console.log('objectNameName', objectNameName)#}
-
-
             if (!objectNameName | !objectHostName | !objectDingTalkUrlName) {
                 return false
             } else {
                 const tr = `<tr class="success"> <td id="objectTableName">${objectNameName}</td>
                     <td>${objectHostName}</td>
                     <td>${objectDingTalkUrlName}</td>
+                    <td>
+                        <button type="button" class="RoleOfdelete btn btn-primary  btn-sm"   btn-sm" style="margin-right:15px;">修改</button>
+                        <button type="button" class="RoleOfdelete btn btn-primary  btn-sm"   btn-sm" style="margin-right:15px;">删除</button>
+                        <button type="button" class="RoleOfdelete btn btn-primary  btn-sm"  id="addCase"  btn-sm" style="margin-right:15px;">添加测试用例</button>
+                    </td>
                 </tr>`
+
+                console.log(tr)
 
                 $('#tbody').append(tr)
                 $('#myModal').modal('hide')
             }
-
         }
     }
 
@@ -137,3 +154,4 @@
 
 </body>
 </html>
+
